@@ -11,6 +11,5 @@ namespace Practical_lesson_No._29.Models
         public DateTime RentStart { get; set; }
         public int Duration { get; set; }
         public int IdClub { get; set; }
-        public int IdLogin { get; set; }
     }
 }

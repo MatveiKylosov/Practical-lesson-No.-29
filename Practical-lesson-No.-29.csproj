@@ -26,4 +26,8 @@
     <Resource Include="Images\ic-user.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SQL request\" />
+  </ItemGroup>
+
 </Project>
