@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ic-club.png" />
+    <None Remove="Images\ic-user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
@@ -17,9 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Pages\Clubs\Elements\" />
     <Folder Include="Pages\Users\Elements\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ic-club.png" />
+    <Resource Include="Images\ic-user.png" />
   </ItemGroup>
 
 </Project>
