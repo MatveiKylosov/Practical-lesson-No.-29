@@ -20,9 +20,21 @@ namespace Practical_lesson_No._29
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
+
+            init = this;
+            
         }
+
+        public void OpenPages(Page Page)
+        {
+            frame.Navigate(Page);
+        }
+
+        private void Clubs(object sender, RoutedEventArgs e) => OpenPages(new Pages.Clubs.Main());
+        private void Users(object sender, RoutedEventArgs e) => OpenPages(new Pages.Users.Main());
     }
 }
