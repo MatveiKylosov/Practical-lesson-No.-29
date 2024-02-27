@@ -24,9 +24,14 @@ namespace Practical_lesson_No._29.Pages.Users.Elements
         Main Main;
         Models.Users User;
 
-        public Item(Models.Users User, Main Main)
+        public Item(Models.Users User, Main Main, bool admin)
         {
             InitializeComponent();
+
+            if (admin)
+                BthItem.Visibility = Visibility.Visible;
+            else
+                BthItem.Visibility = Visibility.Hidden;
 
             this.FIO.Text = User.FIO;
             this.RentStart.Text = User.RentStart.ToString("yyyy-MM-dd");

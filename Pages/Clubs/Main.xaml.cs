@@ -21,11 +21,17 @@ namespace Practical_lesson_No._29.Pages.Clubs
     public partial class Main : Page
     {
         public ClubsContext AllClub = new ClubsContext();
-        public Main()
+        public Main(bool admin)
         {
             InitializeComponent();
+
+            if (admin)
+                BthAdd.Visibility = Visibility.Visible;
+            else
+                BthAdd.Visibility = Visibility.Hidden;
+
             foreach (Models.Clubs Club in AllClub.Clubs)
-                Parent.Children.Add(new Elements.Item(Club, this));
+                Parent.Children.Add(new Elements.Item(Club, this, admin));
         }
 
         private void AddClub(object sender, RoutedEventArgs e) => 

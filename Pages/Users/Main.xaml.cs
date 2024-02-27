@@ -1,4 +1,5 @@
 ﻿using Practical_lesson_No._29.Classes;
+using Practical_lesson_No._29.Pages.Clubs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,11 +22,17 @@ namespace Practical_lesson_No._29.Pages.Users
     public partial class Main : Page
     {
         public UserContext AllUsers = new UserContext();
-        public Main()
+        public Main(bool admin)
         {
             InitializeComponent();
+
+            if (admin)
+                BthAdd.Visibility = Visibility.Visible;
+            else
+                BthAdd.Visibility = Visibility.Hidden;
+
             foreach (Models.Users User in AllUsers.Users)
-                Parent.Children.Add(new Elements.Item(User, this));
+                Parent.Children.Add(new Elements.Item(User, this, admin));
         }
 
         private void AddUser(object sender, RoutedEventArgs e) => 

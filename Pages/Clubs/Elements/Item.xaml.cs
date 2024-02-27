@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practical_lesson_No._29.Pages.Users;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,9 +22,14 @@ namespace Practical_lesson_No._29.Pages.Clubs.Elements
         Main Main;
         Models.Clubs Club;
 
-        public Item(Models.Clubs Club, Main Main)
+        public Item(Models.Clubs Club, Main Main, bool admin)
         {
             InitializeComponent();
+
+            if (admin)
+                BthItem.Visibility = Visibility.Visible;
+            else
+                BthItem.Visibility = Visibility.Hidden;
 
             this.Name.Text = Club.Name;
             this.Address.Text = Club.Address;

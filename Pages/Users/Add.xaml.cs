@@ -69,7 +69,7 @@ namespace Practical_lesson_No._29.Pages.Users
                 User.IdClub = AllClub.Clubs.Where(x => x.Name == Clubs.SelectedItem.ToString()).First().Id;
             }
             this.Main.AllUsers.SaveChanges();
-            MainWindow.init.OpenPages(new Pages.Users.Main());
+            MainWindow.init.OpenPages(new Pages.Users.Main(MainWindow.init.admin));
         }
     }
 }

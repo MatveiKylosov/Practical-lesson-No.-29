@@ -21,20 +21,24 @@ namespace Practical_lesson_No._29
     public partial class MainWindow : Window
     {
         public static MainWindow init;
+        public bool admin = false;
         public MainWindow()
         {
             InitializeComponent();
 
-            init = this;
-            
+            init = this;     
         }
 
-        public void OpenPages(Page Page)
+        public void OpenPages(Page Page) => frame.Navigate(Page);  
+        private void Clubs(object sender, RoutedEventArgs e) => OpenPages(new Pages.Clubs.Main(admin));
+        private void Users(object sender, RoutedEventArgs e) => OpenPages(new Pages.Users.Main(admin));
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            frame.Navigate(Page);
+            if(((TextBlock)Role.SelectedItem).Text == "Админ")
+                admin = true;
+            else 
+                admin = false;
         }
-
-        private void Clubs(object sender, RoutedEventArgs e) => OpenPages(new Pages.Clubs.Main());
-        private void Users(object sender, RoutedEventArgs e) => OpenPages(new Pages.Users.Main());
     }
 }

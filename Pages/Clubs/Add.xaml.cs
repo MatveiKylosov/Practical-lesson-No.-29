@@ -51,7 +51,7 @@ namespace Practical_lesson_No._29.Pages.Clubs
                 Club.WorkTime = this.WorkTime.Text;
             }
             this.Main.AllClub.SaveChanges();
-            MainWindow.init.OpenPages(new Pages.Clubs.Main());
+            MainWindow.init.OpenPages(new Pages.Clubs.Main(MainWindow.init.admin));
         }
     }
 }
