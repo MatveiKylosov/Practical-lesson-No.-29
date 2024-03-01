@@ -1,0 +1,65 @@
+﻿<Page x:Class="Practical_lesson_No._29.Pages.Filter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Practical_lesson_No._29.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Filter">
+    <Grid Margin="20" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+
+        <TextBlock Text="Фильтр" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+
+        <Grid Margin="0,40,0,0">
+            <CheckBox Content="Включить фильтрацию по клубам" FontSize="16" x:Name="ClubCB" Checked="ClubCB_Checked" Unchecked="ClubCB_Checked" Height="30" VerticalAlignment="Top"/>
+
+            <StackPanel x:Name="ClubSP" Orientation="Vertical" Margin="10,30,10,10" IsEnabled="False">
+                <Label Content="Клуб:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+                <ComboBox x:Name="Name" Margin="10,10,0,0"/>
+                
+                <Label Content="Адрес:" Margin="10,10,0,0"/>
+                <ComboBox x:Name="Address" Margin="10,10,0,0"/>
+
+                <Label Content="Время работы:" Margin="10,10,0,0"/>
+                <ComboBox x:Name="WorkTime" Margin="10,10,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="0,40,0,0" Grid.Column="1">
+            <CheckBox Content="Включить фильтрацию по пользователям" FontSize="16" x:Name="UserCB" Checked="UserCB_Checked" Unchecked="UserCB_Checked" Height="25" VerticalAlignment="Top"/>
+
+            <StackPanel x:Name="UserSP" Orientation="Vertical" Margin="10,30,10,10" IsEnabled="False">
+                <Label Content="Клуб:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+                <ComboBox x:Name="ClubUser" Margin="10,10,0,0"/>
+
+                <Label Content="ФИО пользователя:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+                <ComboBox x:Name="FullName" Margin="10,10,0,0"/>
+
+                <Label Content="Время аренды:" Margin="10,10,0,0"/>
+                <TextBox x:Name="RentTime" Margin="10,10,0,0"/>
+
+                <Label Content="Продолжительность:" Margin="10,10,0,0"/>
+                <TextBox x:Name="Duration" Margin="10,10,0,0"/>
+                
+                <Label Content="Время аренды:" Margin="10,10,0,0"/>
+                <DatePicker x:Name="RentStart" VerticalAlignment="Top" Margin="10,10,0,0" Height="25"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Height="25" Width="100" Content="Отфильтровать" Background="#FF46FD00" BorderBrush="#FF46FD00" Foreground="White" Margin="0,0,5,0" Click="TurnFilter"/>
+            <Button Height="25" Width="100" Content="Отменить"      Background="#FFCD1E1E" BorderBrush="#FFCD1E1E" Foreground="White" Margin="5,0,0,0" Click="CancelFilter"/>
+        </StackPanel>
+    </Grid>
+</Page>

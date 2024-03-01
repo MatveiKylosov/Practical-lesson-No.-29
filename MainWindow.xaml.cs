@@ -22,6 +22,7 @@ namespace Practical_lesson_No._29
     {
         public static MainWindow init;
         public bool admin = false;
+        public Pages.Filter filter = new Pages.Filter();
         public MainWindow()
         {
             InitializeComponent();
@@ -39,6 +40,12 @@ namespace Practical_lesson_No._29
                 admin = true;
             else 
                 admin = false;
+        }
+
+        private void Filtes(object sender, RoutedEventArgs e)
+        {
+            filter.UpdateDate();
+            OpenPages(filter);
         }
     }
 }

@@ -30,8 +30,26 @@ namespace Practical_lesson_No._29.Pages.Clubs
             else
                 BthAdd.Visibility = Visibility.Hidden;
 
-            foreach (Models.Clubs Club in AllClub.Clubs)
-                Parent.Children.Add(new Elements.Item(Club, this, admin));
+
+            if (MainWindow.init.filter.filter && MainWindow.init.filter.ClubCB.IsChecked == true)
+            {
+                Pages.Filter filter = MainWindow.init.filter;
+
+                foreach (Models.Clubs Club in AllClub.Clubs)
+                {
+                    if ((filter.Name.SelectedIndex != -1 && ((Models.Clubs)filter.Name.SelectedItem).Id != Club.Id) ||
+                        (filter.Address.SelectedIndex != -1 && filter.Address.SelectedItem.ToString() != Club.Address) ||
+                        (filter.WorkTime.SelectedIndex != -1 && filter.WorkTime.SelectedItem.ToString() != Club.WorkTime))
+                        continue;
+
+                    Parent.Children.Add(new Elements.Item(Club, this, admin));
+                }
+            }
+
+            else 
+                foreach (Models.Clubs Club in AllClub.Clubs)
+                    Parent.Children.Add(new Elements.Item(Club, this, admin));
+            
         }
 
         private void AddClub(object sender, RoutedEventArgs e) => 
